@@ -17,13 +17,13 @@ class ResetpasswordPage : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_resetpassword_page)
+        setContentView(R.layout.activity_reset_password_page)
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        noAcc = findViewById(R.id.)
-        resetPwdButton = findViewById(R.id.)
-        resetEmail = findViewById(R.id.)
+        noAcc = findViewById(R.id.noAcc)
+        resetPwdButton = findViewById(R.id.reset_pwd_button)
+        resetEmail = findViewById(R.id.reset_email)
 
         noAcc.setOnClickListener{
             val intent = Intent(this, SignUpPage::class.java)
