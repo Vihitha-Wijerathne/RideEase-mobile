@@ -59,7 +59,8 @@ class SignUpPage : AppCompatActivity() {
             val email = remail.text.toString()
             val password = rpasswd.text.toString()
             val repassword = repasswd.text.toString()
-            val balance = "0.0"
+            val balance = 0.0
+            val loan = 0.0
 
             if(nic.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && repassword.isNotEmpty()){
                 if(email.contains("@")){
@@ -77,9 +78,10 @@ class SignUpPage : AppCompatActivity() {
                                                 name: String,
                                                 email: String,
                                                 phoneNumb: String,
-                                                cbalance: String
+                                                cbalance: Double,
+                                                loan: Double
                                             ) {
-                                                val user = UserModal(nic, name, email, phoneNumb, cbalance)
+                                                val user = UserModal(nic, name, email, phoneNumb, cbalance, loan)
                                                 database.child(userId).setValue(user)
                                             }
 
@@ -87,7 +89,7 @@ class SignUpPage : AppCompatActivity() {
                                             user?.let {
                                                 val uid = it.uid
 
-                                                writeNewUser(uid, nic, name, email, number, balance)
+                                                writeNewUser(uid, nic, name, email, number, balance,loan)
 
                                                 user?.sendEmailVerification()
                                                     ?.addOnCompleteListener(this@SignUpPage) { task ->

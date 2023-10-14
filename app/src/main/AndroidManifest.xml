@@ -25,10 +25,11 @@
             android:name=".WelcomePage.SignInPage"
             android:exported="false" />
         <activity
-            android:name=".WelcomePage.WelcomePage"
+            android:name=".MainActivity"
+
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".WelcomePage.WelcomePage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
