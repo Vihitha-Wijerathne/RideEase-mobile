@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "802444444020",
+    "project_id": "rideease-126b9",
+    "storage_bucket": "rideease-126b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802444444020:android:d40ff6bf009882b801ac21",
+        "android_client_info": {
+          "package_name": "com.example.rideease"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAivMrBu-yfu3vO6kNw5QsoncpXmKj1tiQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
