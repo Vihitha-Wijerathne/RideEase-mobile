@@ -15,6 +15,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.IgnoreExtraProperties
 import com.google.firebase.database.ValueEventListener
 
 class SignUpPage : AppCompatActivity() {
@@ -26,25 +27,22 @@ class SignUpPage : AppCompatActivity() {
     private lateinit var rnic: EditText
     private lateinit var rpnumber: EditText
     private lateinit var remail: EditText
-    private lateinit var raddress: EditText
     private lateinit var rpasswd: EditText
     private lateinit var repasswd: EditText
-    private lateinit var rage: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up_page)
 
-        registerbtn
-        alredyhv
-        rname
-        rnic
-        rpnumber
-        remail
-        raddress
-        rpasswd
-        repasswd
-        rage
+        registerbtn = findViewById(R.id.)
+        alredyhv = findViewById(R.id.)
+        rname = findViewById(R.id.)
+        rnic = findViewById(R.id.)
+        rpnumber = findViewById(R.id.)
+        remail = findViewById(R.id.)
+        rpasswd = findViewById(R.id.)
+        repasswd = findViewById(R.id.)
+
 
         firebaseAuth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance().getReference("users")
@@ -59,35 +57,67 @@ class SignUpPage : AppCompatActivity() {
             val nic = rnic.text.toString()
             val number = rpnumber.text.toString()
             val email = remail.text.toString()
-            val address = raddress.text.toString()
-            val age = rage.text.toString()
             val password = rpasswd.text.toString()
             val repassword = repasswd.text.toString()
+            val balance = "0.0"
 
             if(nic.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && repassword.isNotEmpty()){
                 if(email.contains("@")){
                     if(password.length>=6){
                         if(nic.length.equals(12)){
-                            if(password.equals(repassword)){
+                            if(password.equals(repassword)) {
 
-                                database.addValueEventListener(object : ValueEventListener {
-                                    override fun onDataChange(snapshot: DataSnapshot) {
-                                        if (snapshot.exists()) {
-                                            for (ResultsSnap in snapshot.children) {
-                                                val Results = ResultsSnap.getValue(UserModal::class.java)
-                                                if (Results?.nic == nic) {
-                                                    Toast.makeText(this@SignUpPage,"user already exists", Toast.LENGTH_LONG).show()
-                                                }
+                                firebaseAuth.createUserWithEmailAndPassword(email, password)
+                                    .addOnCompleteListener {
+                                        if (it.isSuccessful) {
+
+                                            fun writeNewUser(
+                                                userId: String,
+                                                nic: String,
+                                                name: String,
+                                                email: String,
+                                                phoneNumb: String,
+                                                cbalance: String
+                                            ) {
+                                                val user = UserModal(nic, name, email, phoneNumb, cbalance)
+                                                database.child(userId).setValue(user)
                                             }
+
+                                            val user = firebaseAuth.currentUser
+                                            user?.let {
+                                                val uid = it.uid
+
+                                                writeNewUser(uid, nic, name, email, number, balance)
+
+                                                user?.sendEmailVerification()
+                                                    ?.addOnCompleteListener(this@SignUpPage) { task ->
+                                                        if (task.isSuccessful) {
+                                                            Toast.makeText(
+                                                                this@SignUpPage,
+                                                                "Verification email sent to ${user.email}",
+                                                                Toast.LENGTH_SHORT
+                                                            ).show()
+                                                        } else {
+                                                            Toast.makeText(
+                                                                this@SignUpPage,
+                                                                "Failed to send verification email.",
+                                                                Toast.LENGTH_SHORT
+                                                            ).show()
+                                                        }
+                                                    }
+                                            }
+
+                                            val intent =
+                                                Intent(this@SignUpPage, SignInPage::class.java)
+                                            startActivity(intent)
+
+
+                                        } else {
+                                            Toast.makeText(this@SignUpPage, it.exception.toString(), Toast.LENGTH_SHORT).show()
                                         }
                                     }
 
-                                    override fun onCancelled(error: DatabaseError) {
-                                        // Handle the error here
-                                    }
-                                })
-                            }
-                            else{
+                            }else{
                                 Toast.makeText(this,"Passwords are not matching", Toast.LENGTH_LONG).show()
                             }
                         }
