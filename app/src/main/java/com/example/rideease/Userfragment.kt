@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import com.example.rideease.Modals.Route
 import com.example.rideease.Modals.UserModal
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -69,8 +70,40 @@ class Userfragment : Fragment() {
                 }
             })
 
+                val database: DatabaseReference = FirebaseDatabase.getInstance().reference
 
-        }
+                fun addRoute(routeId: String, routeName: String) {
+                    val routesRef = database.child("Routes").child(routeId)
+                    val routeData = HashMap<String, Any>()
+                    routeData["routeId"] = routeId
+                    routeData["routeName"] = routeName
+
+                    routesRef.setValue(routeData)
+                }
+
+                // Function to retrieve route data
+                fun getRoutes(callback: (List<Route>) -> Unit) {
+                    val routesRef = database.child("Routes")
+                    routesRef.addListenerForSingleValueEvent(object : ValueEventListener {
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            val routesList = mutableListOf<Route>()
+                            for (routeSnapshot in snapshot.children) {
+                                val route = routeSnapshot.getValue(Route::class.java)
+                                route?.let {
+                                    routesList.add(it)
+                                }
+                            }
+                            callback(routesList)
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+                            // Handle database error
+                            callback(emptyList())
+                        }
+                    })
+                }
+            }
+
         return view
 
     }
