@@ -34,14 +34,14 @@ class SignUpPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up_page)
 
-        registerbtn = findViewById(R.id.)
-        alredyhv = findViewById(R.id.)
-        rname = findViewById(R.id.)
-        rnic = findViewById(R.id.)
-        rpnumber = findViewById(R.id.)
-        remail = findViewById(R.id.)
-        rpasswd = findViewById(R.id.)
-        repasswd = findViewById(R.id.)
+        registerbtn = findViewById(R.id.reg_button)
+        alredyhv = findViewById(R.id.already_acc)
+        rname = findViewById(R.id.p_name)
+        rnic = findViewById(R.id.reg_nic)
+        rpnumber = findViewById(R.id.reg_phone)
+        remail = findViewById(R.id.reg_email)
+        rpasswd = findViewById(R.id.reg_password)
+        repasswd = findViewById(R.id.re_password)
 
 
         firebaseAuth = FirebaseAuth.getInstance()

@@ -1,0 +1,48 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="color_grid_margin">0dp</dimen>
+    <dimen name="color_grid_startEndMargin">0dp</dimen>
+    <dimen name="color_grid_height">0dp</dimen>
+    <dimen name="generated_words_text_size">10sp</dimen>
+
+
+    //nav-bar icon dimensions
+    <dimen name="nav_height">60dp</dimen>
+    <dimen name="nav_width">60dp</dimen>
+
+    //nav-bar margins
+    <dimen name="nav_start">12dp</dimen>
+    <dimen name="nav_end">12dp</dimen>
+    <dimen name="nav_top">12dp</dimen>
+    <dimen name="nav_bottom">12dp</dimen>
+    <dimen name="nav_elevation">15dp</dimen>
+    <dimen name="nav_padding">6dp</dimen>
+
+
+    //input box sizes
+    <dimen name="input_height_1">45dp</dimen>
+    <dimen name="input_height_2">50dp</dimen>
+
+    //margins
+    <dimen name="top_margin_1">10dp</dimen>
+    <dimen name="top_margin_2">20dp</dimen>
+    <dimen name="top_margin_3">30dp</dimen>
+    <dimen name="bottom_margin_1">10dp</dimen>
+    <dimen name="bottom_margin_2">15dp</dimen>
+
+    <dimen name="end_margin">40dp</dimen>
+    <dimen name="start_margin">40dp</dimen>
+
+    <dimen name="image_h">200dp</dimen>
+    <dimen name="image_l">450dp</dimen>
+    <dimen name="icon_l">12dp</dimen>
+    <dimen name="icon_h">12dp</dimen>
+
+    <dimen name="top">15dp</dimen>
+    <dimen name="bottom">15dp</dimen>
+    <dimen name="left">20dp</dimen>
+    <dimen name="right">20dp</dimen>
+    <dimen name="img_1">46dp</dimen>
+    <dimen name="img_2">56dp</dimen>
+
+</resources>
