@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.example.rideease.MainActivity
 import com.example.rideease.R
@@ -13,8 +14,8 @@ import com.google.firebase.auth.FirebaseAuth
 class SignInPage : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private  lateinit var signinbtn: Button
-    private lateinit var fogotpwdbtn: Button
-    private lateinit var newacc: Button
+    private lateinit var fogotpwdbtn: TextView
+    private lateinit var newacc: TextView
     private lateinit var passwd: EditText
     private lateinit var uemail: EditText
 

@@ -10,16 +10,33 @@ import android.widget.Button
 import com.example.rideease.DayPass.DaypassSelect
 import com.example.rideease.Route.AddRoute
 import com.example.rideease.Route.Route
-
+import com.example.rideease.GetLoan.AddLoan
+import com.example.rideease.DayPass.DaypassSelection
 
 class Homefragment : Fragment() {
+    private lateinit var loan: Button
+    private lateinit var payr: Button
+    private lateinit var pay: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_homefragment, container, false)
+
+        pay = view.findViewById(R.id.payment)
+        payr = view.findViewById(R.id.paymentr)
+        loan = view.findViewById(R.id.getloan_home)
+
+        loan.setOnClickListener{
+            val intent = Intent(activity,AddLoan::class.java)
+            startActivity(intent)
+        }
+
+        pay.setOnClickListener {
+            val intent = Intent(activity, AddCardDetails::class.java)
+            startActivity(intent)
+        }
 
         val dayPassButton: Button = view.findViewById(R.id.dayPassButton)
         dayPassButton.setOnClickListener {
@@ -35,9 +52,13 @@ class Homefragment : Fragment() {
             startActivity(intent)
         }
 
+        payr.setOnClickListener {
+            val intent = Intent(activity, CreditCard::class.java)
+            startActivity(intent)
+        }
+
         return view
     }
 
-
-
 }
+

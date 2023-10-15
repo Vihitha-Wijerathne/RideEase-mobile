@@ -28,20 +28,38 @@
             android:name=".DayPass.DaypassDetails"
             android:exported="false" />
         <activity
+            android:name=".Recharge.Recharge"
+            android:exported="false" />
+        <activity
             android:name=".WelcomePage.ResetpasswordPage"
             android:exported="false" />
         <activity
             android:name=".WelcomePage.SignUpPage"
             android:exported="false" />
         <activity
+            android:name=".GetLoan.AddLoan"
+            android:exported="false" />
+        <activity
             android:name=".WelcomePage.SignInPage"
             android:exported="false" />
         <activity
-            android:name=".WelcomePage.WelcomePage"
+            android:name=".MainActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".AddCardDetails"
+            android:exported="false" />
+
+        <activity
+            android:name=".CreditCard"
+            android:exported="false" />
+
+        <activity
+            android:name=".JourneyHistory"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true" >
+            android:name=".WelcomePage.WelcomePage"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
