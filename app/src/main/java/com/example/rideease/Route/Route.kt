@@ -1,10 +1,11 @@
 package com.example.rideease.Route
 
+import RouteModel
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.example.rideease.Modals.RouteModel
+
 import com.example.rideease.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*

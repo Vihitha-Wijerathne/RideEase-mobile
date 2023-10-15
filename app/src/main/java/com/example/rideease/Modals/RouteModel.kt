@@ -1,12 +1,16 @@
-package com.example.rideease.Modals
+class RouteModel {
+    var routeId: String? = null
+    var source: String? = null
+    var destination: String? = null
+    var fare: Double? = null
 
-data class RouteModel(
-    val routeId: String, // ID for the route
-    val source: String, // Source location of the route
-    val destination: String, // Destination location of the route
-    val fare: Double // Fare for the route
-){
-    override fun toString(): String {
-        return routeId
+    // Default, no-argument constructor required by Firebase
+    constructor()
+
+    constructor(routeId: String, source: String, destination: String, fare: Double) {
+        this.routeId = routeId
+        this.source = source
+        this.destination = destination
+        this.fare = fare
     }
 }
