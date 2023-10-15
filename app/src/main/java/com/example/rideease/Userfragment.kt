@@ -59,7 +59,7 @@ class Userfragment : Fragment() {
                         usernametxt.text = user?.name
                         email.text = user?.email
                         contactNumb.text = user?.number
-                       // cbalance.text = user?.balance
+                        cbalance.text = user?.balance.toString()
 
                     }
                 }

@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.example.rideease.R
-import kotlin.math.sign
 
 class WelcomePage : AppCompatActivity() {
     private lateinit var signin: Button
