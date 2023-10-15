@@ -52,21 +52,9 @@ class AddLoan : AppCompatActivity() {
         addbtn = findViewById(R.id.addloan_loan)
         lamount = findViewById(R.id.loanamount_loan)
         loandue = findViewById(R.id.remainingloan_loan)
-        inputamount = lamount.text.toString()
-        namount = inputamount.toDouble()
 
 
         firebaseAuth = FirebaseAuth.getInstance()
-        getLoanDue()
-        loandue.text = uloandue.toString()
-        addLoan()
-
-
-
-
-    }
-
-    private fun getLoanDue(){
         val user = firebaseAuth.currentUser
 
         user?.let{
@@ -76,13 +64,14 @@ class AddLoan : AppCompatActivity() {
             database.addValueEventListener(object : ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if(snapshot.exists()){
-                        val user = snapshot.getValue(UserModal::class.java)
-                        nic = user?.nic.toString()
-                        name = user?.name.toString()
-                        email = user?.email.toString()
-                        number = user?.number.toString()
-                        uloandue = user?.loandue!!
-                        cbalance = user?.balance!!
+                        val userr = snapshot.getValue(UserModal::class.java)
+                        nic = userr?.nic!!
+                        name = userr?.name!!
+                        email = userr?.email!!
+                        number = userr?.number!!
+                        uloandue = userr?.loandue!!
+                        cbalance = userr?.balance!!
+                        loandue.text = uloandue.toString()
 
                     }
                 }
@@ -93,6 +82,17 @@ class AddLoan : AppCompatActivity() {
                 }
             })
 
+        }
+
+
+        addbtn.setOnClickListener{
+            inputamount = lamount.text.toString()
+            try {
+                namount = inputamount.toDouble()
+                addLoan()
+            }catch (e : NumberFormatException){
+
+            }
 
         }
     }
@@ -118,6 +118,7 @@ class AddLoan : AppCompatActivity() {
                 database.child(loanid).setValue(loanresult)
                     .addOnCompleteListener {
                         Toast.makeText(this, "Loan added Successfully", Toast.LENGTH_LONG).show()
+                        lamount.text.clear()
                     }.addOnFailureListener { err ->
                         Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_SHORT).show()
                     }
@@ -132,9 +133,6 @@ class AddLoan : AppCompatActivity() {
 
     }
     private fun updateUser(){
-
-        uloandue = uloandue - namount
-        cbalance = cbalance + namount
 
         database = FirebaseDatabase.getInstance().getReference("users").child(userid)
 

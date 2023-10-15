@@ -59,8 +59,8 @@ class SignUpPage : AppCompatActivity() {
             val email = remail.text.toString()
             val password = rpasswd.text.toString()
             val repassword = repasswd.text.toString()
-            val balance = 0.0
-            val loan = 0.0
+            val balance = 3000.0
+            val loan = 1500.0
 
             if(nic.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && repassword.isNotEmpty()){
                 if(email.contains("@")){
