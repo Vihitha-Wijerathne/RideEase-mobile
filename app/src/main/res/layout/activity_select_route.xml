@@ -1,0 +1,29 @@
+<!-- activity_daypass_select.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/routesContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#FFFFFF"
+>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Route items will be added here dynamically -->
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Other UI elements in your activity layout if any -->
+
+</LinearLayout>
