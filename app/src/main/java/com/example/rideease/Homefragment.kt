@@ -7,9 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import com.example.rideease.GetLoan.AddLoan
 import com.example.rideease.DayPass.DaypassSelection
 
 class Homefragment : Fragment() {
+    private lateinit var loan: Button
+    private lateinit var payr: Button
+    private lateinit var pay: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -17,8 +21,14 @@ class Homefragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_homefragment, container, false)
 
-        val pay = view.findViewById<Button>(R.id.payment)
-        val payr = view.findViewById<Button>(R.id.paymentr)
+        pay = view.findViewById(R.id.payment)
+        payr = view.findViewById(R.id.paymentr)
+        loan = view.findViewById(R.id.getloan_home)
+
+        loan.setOnClickListener{
+            val intent = Intent(activity,AddLoan::class.java)
+            startActivity(intent)
+        }
 
         pay.setOnClickListener {
             val intent = Intent(activity, AddCardDetails::class.java)
