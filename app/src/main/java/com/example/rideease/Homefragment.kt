@@ -8,10 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import com.example.rideease.DayPass.SelectRoute
-import com.example.rideease.Route.AddRoute
-import com.example.rideease.GetLoan.AddLoan
 
+import com.example.rideease.DayPass.DaypassSelect
+import com.example.rideease.GetLoan.AddLoan
+import com.example.rideease.Route.AddRoute
 
 class Homefragment : Fragment() {
     private lateinit var loan: Button
@@ -29,7 +29,7 @@ class Homefragment : Fragment() {
         loan = view.findViewById(R.id.getloan_home)
 
         loan.setOnClickListener{
-            val intent = Intent(activity,AddLoan::class.java)
+            val intent = Intent(activity, AddLoan::class.java)
             startActivity(intent)
         }
 
