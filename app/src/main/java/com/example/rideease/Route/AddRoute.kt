@@ -1,10 +1,10 @@
 package com.example.rideease.Route
 
+import RouteModel
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import com.example.rideease.Modals.RouteModel
 import com.example.rideease.R
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase

@@ -1,50 +1,53 @@
-package com.example.rideease.DayPass
-
 import android.os.Bundle
-import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.rideease.Modals.RouteModel
 import com.example.rideease.R
 import com.google.firebase.database.*
 
 class DaypassSelect : AppCompatActivity() {
+
+    private lateinit var routesContainer: LinearLayout
     private lateinit var database: DatabaseReference
-    private lateinit var routeIdTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_daypass_select)
-        database = FirebaseDatabase.getInstance().getReference("Routes").child("177")
-        routeIdTextView = findViewById(R.id.routeIdTextView)
 
-        // Call the function to retrieve data
-        getRouteData()
-    }
+        routesContainer = findViewById(R.id.routesContainer)
+        database = FirebaseDatabase.getInstance().getReference("Routes")
 
-    private fun getRouteData() {
-        // Read data from the specific route ID "177"
-        database.addListenerForSingleValueEvent(object : ValueEventListener {
+        database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val route = snapshot.getValue(RouteModel::class.java)
-                route?.let {
-                    // Display the route ID in the TextView
-                    routeIdTextView.text = "Route ID: ${it.routeId}"
-                } ?: run {
-                    // Handle the case where the route data with ID "177" does not exist
-                    routeIdTextView.text = "Route data not found"
+                if (snapshot.exists()) {
+                    for (routeSnapshot in snapshot.children) {
+                        val route = routeSnapshot.getValue(RouteModel::class.java)
+                        if (route != null) {
+                            // Inflate the route item layout
+                            val routeItemView = layoutInflater.inflate(R.layout.route_item, null)
+
+                            // Find views in the route item layout
+                            val routeIdTextView: TextView = routeItemView.findViewById(R.id.routeIdTextView)
+                            val sourceTextView: TextView = routeItemView.findViewById(R.id.sourceTextView)
+                            val destinationTextView: TextView = routeItemView.findViewById(R.id.destinationTextView)
+                            val fareTextView: TextView = routeItemView.findViewById(R.id.fareTextView)
+
+                            // Set data to the views
+                            routeIdTextView.text = "Route ID: ${route.routeId}"
+                            sourceTextView.text = "Source: ${route.source}"
+                            destinationTextView.text = "Destination: ${route.destination}"
+                            fareTextView.text = "Fare: ${route.fare}"
+
+                            // Add the route item view to the container
+                            routesContainer.addView(routeItemView)
+                        }
+                    }
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Handle database read error
-                routeIdTextView.text = "Error fetching route data"
+                // Handle database error
             }
         })
-    }
-
-    // Handle the "Buy Day Pass" button click
-    fun onBuyDayPassClick(view: View) {
-        // Implement your logic when the "Buy Day Pass" button is clicked
     }
 }
