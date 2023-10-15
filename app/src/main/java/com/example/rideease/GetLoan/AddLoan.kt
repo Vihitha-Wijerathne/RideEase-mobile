@@ -1,4 +1,4 @@
-package com.example.rideease.AddLoan
+package com.example.rideease.GetLoan
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
