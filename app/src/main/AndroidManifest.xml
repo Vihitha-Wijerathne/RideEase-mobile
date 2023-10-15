@@ -22,6 +22,9 @@
             android:name=".DaypassSelection"
             android:exported="false" />
         <activity
+            android:name=".Recharge.Recharge"
+            android:exported="false" />
+        <activity
             android:name=".WelcomePage.ResetpasswordPage"
             android:exported="false" />
         <activity
