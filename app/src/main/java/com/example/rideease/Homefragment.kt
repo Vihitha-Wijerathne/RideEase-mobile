@@ -7,6 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import com.example.rideease.DayPass.DaypassSelect
+import com.example.rideease.Route.AddRoute
+import com.example.rideease.Route.Route
 import com.example.rideease.GetLoan.AddLoan
 import com.example.rideease.DayPass.DaypassSelection
 
@@ -38,14 +41,22 @@ class Homefragment : Fragment() {
         val dayPassButton: Button = view.findViewById(R.id.dayPassButton)
         dayPassButton.setOnClickListener {
             // Navigate to DaypassSelectionActivity
-            val intent = Intent(activity, DaypassSelection::class.java)
+            val intent = Intent(activity, DaypassSelect::class.java)
             startActivity(intent)
         }
-        
+
+        val addRoute: Button = view.findViewById(R.id.addRouteButton)
+        addRoute.setOnClickListener {
+            // Navigate to DaypassSelectionActivity
+            val intent = Intent(activity, AddRoute::class.java)
+            startActivity(intent)
+        }
+
         payr.setOnClickListener {
             val intent = Intent(activity, CreditCard::class.java)
             startActivity(intent)
         }
+
         return view
     }
 
