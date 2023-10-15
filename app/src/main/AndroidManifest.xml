@@ -13,7 +13,16 @@
         android:theme="@style/Theme.RideEase"
         tools:targetApi="31">
         <activity
-            android:name=".AddLoan.AddLoan"
+            android:name=".DaypassPaymentConfirmation"
+            android:exported="false" />
+        <activity
+            android:name=".DaypassDetails"
+            android:exported="false" />
+        <activity
+            android:name=".DaypassSelection"
+            android:exported="false" />
+        <activity
+            android:name=".Recharge.Recharge"
             android:exported="false" />
         <activity
             android:name=".WelcomePage.ResetpasswordPage"
@@ -26,7 +35,18 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:exported="false" />
 
+        <activity
+            android:name=".AddCardDetails"
+            android:exported="false" />
+
+        <activity
+            android:name=".CreditCard"
+            android:exported="false" />
+
+        <activity
+            android:name=".JourneyHistory"
             android:exported="false" />
         <activity
             android:name=".WelcomePage.WelcomePage"
