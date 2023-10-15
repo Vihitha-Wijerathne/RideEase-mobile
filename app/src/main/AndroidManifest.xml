@@ -24,6 +24,18 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".AddCardDetails"
+            android:exported="false" />
+
+        <activity
+            android:name=".CreditCard"
+            android:exported="false" />
+
+        <activity
+            android:name=".JourneyHistory"
+            android:exported="false" />
         <activity
             android:name=".WelcomePage.WelcomePage"
             android:exported="true">
