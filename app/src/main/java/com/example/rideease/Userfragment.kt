@@ -76,8 +76,8 @@ import com.google.firebase.database.ValueEventListener
                         usernametxt.text = user?.name
                         email.text = user?.email
                         contactNumb.text = user?.number
-                       // cbalance.text = user?.balance
-66
+                        cbalance.text = user?.balance.toString()
+
                     }
                 }
 
