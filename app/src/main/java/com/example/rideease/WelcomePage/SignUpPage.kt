@@ -34,14 +34,14 @@ class SignUpPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up_page)
 
-        registerbtn = findViewById(R.id.)
-        alredyhv = findViewById(R.id.)
-        rname = findViewById(R.id.)
-        rnic = findViewById(R.id.)
-        rpnumber = findViewById(R.id.)
-        remail = findViewById(R.id.)
-        rpasswd = findViewById(R.id.)
-        repasswd = findViewById(R.id.)
+        registerbtn = findViewById(R.id.reg_button)
+        alredyhv = findViewById(R.id.already_acc)
+        rname = findViewById(R.id.p_name)
+        rnic = findViewById(R.id.reg_nic)
+        rpnumber = findViewById(R.id.reg_phone)
+        remail = findViewById(R.id.reg_email)
+        rpasswd = findViewById(R.id.reg_password)
+        repasswd = findViewById(R.id.re_password)
 
 
         firebaseAuth = FirebaseAuth.getInstance()
@@ -59,7 +59,8 @@ class SignUpPage : AppCompatActivity() {
             val email = remail.text.toString()
             val password = rpasswd.text.toString()
             val repassword = repasswd.text.toString()
-            val balance = "0.0"
+            val balance = 0.0
+            val loan = 0.0
 
             if(nic.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && repassword.isNotEmpty()){
                 if(email.contains("@")){
@@ -77,9 +78,10 @@ class SignUpPage : AppCompatActivity() {
                                                 name: String,
                                                 email: String,
                                                 phoneNumb: String,
-                                                cbalance: String
+                                                cbalance: Double,
+                                                loan: Double
                                             ) {
-                                                val user = UserModal(nic, name, email, phoneNumb, cbalance)
+                                                val user = UserModal(nic, name, email, phoneNumb, cbalance, loan)
                                                 database.child(userId).setValue(user)
                                             }
 
@@ -87,7 +89,7 @@ class SignUpPage : AppCompatActivity() {
                                             user?.let {
                                                 val uid = it.uid
 
-                                                writeNewUser(uid, nic, name, email, number, balance)
+                                                writeNewUser(uid, nic, name, email, number, balance,loan)
 
                                                 user?.sendEmailVerification()
                                                     ?.addOnCompleteListener(this@SignUpPage) { task ->

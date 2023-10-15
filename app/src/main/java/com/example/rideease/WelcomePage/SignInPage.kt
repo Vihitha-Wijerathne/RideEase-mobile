@@ -16,14 +16,18 @@ class SignInPage : AppCompatActivity() {
     private lateinit var fogotpwdbtn: Button
     private lateinit var newacc: Button
     private lateinit var passwd: EditText
+    private lateinit var uemail: EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in_page)
         firebaseAuth = FirebaseAuth.getInstance()
 
-        signinbtn = findViewById(R.id.)
-        fogotpwdbtn = findViewById(R.id.)
-        newacc = findViewById(R.id.)
+        signinbtn = findViewById(R.id.log_button)
+        fogotpwdbtn = findViewById(R.id.forgetPwd)
+        newacc = findViewById(R.id.noAcc)
+        uemail = findViewById(R.id.log_email)
+        passwd = findViewById(R.id.log_password)
 
         fogotpwdbtn.setOnClickListener{
             val intent = Intent(this,ResetpasswordPage::class.java)
@@ -36,8 +40,8 @@ class SignInPage : AppCompatActivity() {
         }
 
         signinbtn.setOnClickListener{
-            val email = .text.toString()
-            val pass = .text.toString()
+            val email = uemail.text.toString()
+            val pass = passwd.text.toString()
 
             if(email.isNotEmpty() && pass.isNotEmpty()){
                 firebaseAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener {

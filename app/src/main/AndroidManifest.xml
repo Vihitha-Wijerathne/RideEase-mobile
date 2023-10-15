@@ -13,7 +13,13 @@
         android:theme="@style/Theme.RideEase"
         tools:targetApi="31">
         <activity
-            android:name=".Recharge"
+            android:name=".DaypassPaymentConfirmation"
+            android:exported="false" />
+        <activity
+            android:name=".DaypassDetails"
+            android:exported="false" />
+        <activity
+            android:name=".DaypassSelection"
             android:exported="false" />
         <activity
             android:name=".WelcomePage.ResetpasswordPage"

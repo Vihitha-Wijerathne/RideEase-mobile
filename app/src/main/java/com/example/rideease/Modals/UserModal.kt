@@ -5,5 +5,6 @@ data class UserModal(
     var name: String? = null,
     var email: String? = null,
     var number: String? = null,
-    var balance: String? = null,
+    var balance: Double? = null,
+    var loandue: Double? = null
 )
