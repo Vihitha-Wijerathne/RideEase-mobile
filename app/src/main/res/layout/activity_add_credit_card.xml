@@ -7,13 +7,26 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:gravity="center"
-    tools:context=".AddCardDetails">
+    tools:context=".AddCardDetails"
+    android:background="@drawable/backgroundt">
+
+    <!-- Title "PAYMENT" -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="100dp"
+        android:text="Payment"
+        android:textSize="60sp" />
 
     <EditText
         android:id="@+id/card_number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:paddingStart="8dp"
         android:hint="Credit Card Number"
+        android:background="@drawable/rounded_edittext_background"
         android:inputType="number"
         android:layout_marginBottom="16dp"/>
 
@@ -27,37 +40,50 @@
             android:id="@+id/month"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:background="@drawable/rounded_edittext_background"
+            android:layout_height="50dp"
             android:inputType="number"
+            android:paddingStart="8dp"
             android:hint="MM"/>
 
+        <!-- Add margin start (horizontal space) to create space between the EditText fields -->
         <EditText
             android:id="@+id/year"
             android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="15dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_edittext_background"
+            android:hint="YY"
             android:inputType="number"
-            android:hint="YY"/>
+            android:paddingStart="8dp" /> <!-- Adjust the margin value as needed -->
     </LinearLayout>
+
 
     <EditText
         android:id="@+id/name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded_edittext_background"
         android:hint="Name"
+        android:paddingStart="8dp"
         android:layout_marginBottom="16dp"/>
 
     <EditText
         android:id="@+id/cvv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_edittext_background"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
         android:hint="CVV"
+        android:paddingStart="8dp"
         android:inputType="number"
         android:layout_marginBottom="16dp"/>
 
     <Button
         android:id="@+id/submit_button"
-        android:layout_width="match_parent"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Submit"/>
 

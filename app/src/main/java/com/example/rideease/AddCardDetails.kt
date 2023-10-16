@@ -80,8 +80,8 @@ class AddCardDetails : AppCompatActivity() {
         val cvvText = cvv.text.toString()
 
         // Validate credit card details
-        if (nameText.isEmpty() || nameText.length < 2 ||
-            cardNumberText.isEmpty() || cardNumberText.length != 19 ||
+        if (nameText.isEmpty() ||
+            cardNumberText.isEmpty() ||
             expirationMonthText.isEmpty() || !isValidExpirationDate(expirationMonthText) ||
             expirationYearText.isEmpty() || !isValidExpirationDate(expirationYearText) ||
             cvvText.isEmpty() || cvvText.length != 3
