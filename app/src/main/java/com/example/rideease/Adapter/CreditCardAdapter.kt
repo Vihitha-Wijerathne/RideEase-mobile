@@ -10,8 +10,7 @@ import com.example.rideease.Modals.AddCardModal
 import com.example.rideease.R
 
 
-class CreditCardAdapter(private val testResults: List<AddCardModal>,
-                                     private val onDeleteClickListener: (AddCardModal) -> Unit) :
+class CreditCardAdapter(private val testResults: List<AddCardModal>) :
     RecyclerView.Adapter<CreditCardAdapter.TestResultViewHolder>() {
 
     // Create a ViewHolder class to hold the views for a single row
@@ -40,7 +39,6 @@ class CreditCardAdapter(private val testResults: List<AddCardModal>,
         holder.expirationMonthTextView.text = testResult.expirationMonth
         holder.expirationYearTextView.text = testResult.expirationYear
         // Add more binding as needed
-
     }
 
     // Return the number of items in the data set
@@ -48,4 +46,5 @@ class CreditCardAdapter(private val testResults: List<AddCardModal>,
         return testResults.size
     }
 }
+
 

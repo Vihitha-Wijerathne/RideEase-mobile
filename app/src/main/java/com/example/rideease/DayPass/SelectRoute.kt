@@ -17,7 +17,8 @@ class SelectRoute : AppCompatActivity() {
     private lateinit var database: DatabaseReference
     private lateinit var buttonBuyDaypass: Button
     private lateinit var routeData: RouteModel
-    private lateinit var user: UserModal
+    private  lateinit var newu: UserModal
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +33,8 @@ class SelectRoute : AppCompatActivity() {
             userRef.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
-                        user = snapshot.getValue(UserModal::class.java)!!
+                        val user = snapshot.getValue(UserModal::class.java)
+                        newu = user!!
                     }
                 }
 
@@ -75,9 +77,9 @@ class SelectRoute : AppCompatActivity() {
         })
 
         buttonBuyDaypass.setOnClickListener {
-            if (::routeData.isInitialized && ::user.isInitialized) {
+            if (::routeData.isInitialized && ::newu.isInitialized) {
                 val selectedRouteFare = routeData.fare ?: 0.0
-                val userBalance = user.balance ?: 0.0
+                val userBalance = newu.balance ?: 0.0
 
                 if (userBalance >= selectedRouteFare) {
                     // Deduct fare from user's balance

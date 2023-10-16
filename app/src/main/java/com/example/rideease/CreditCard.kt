@@ -25,36 +25,14 @@ class CreditCard : AppCompatActivity() {
 
         cbresult = ArrayList()
 
-        recordAdapter = CreditCardAdapter(cbresult) { testResultToDelete ->
-            // Handle the deletion of the item (e.g., remove it from the list)
-            cbresult.remove(testResultToDelete)
-            recordAdapter.notifyDataSetChanged()
-        }
+        // Initialize the RecyclerView and its adapter
+        recordRecyclerView = findViewById(R.id.creditCardRecyclerView)
+        recordRecyclerView.layoutManager = LinearLayoutManager(this)
+        recordAdapter = CreditCardAdapter(cbresult)
+        recordRecyclerView.adapter = recordAdapter
 
-
-        val openDialogButton = findViewById<Button>(R.id.openDialogButton)
-        openDialogButton.setOnClickListener {
-            // When the button is clicked, open the dialog
-            openCardDetailsDialog()
-        }
 
         getresults()
-    }
-
-    private fun openCardDetailsDialog() {
-        val dialogView = layoutInflater.inflate(R.layout.dialog_credit_card_details, null)
-        val dialogRecyclerView = dialogView.findViewById<RecyclerView>(R.id.dialogRecyclerView)
-
-        // Set up the RecyclerView in the dialog with card details
-        val dialogAdapter = CreditCardAdapter(cbresult) { testResultToDelete ->
-            // Handle interactions within the dialog
-        }
-        dialogRecyclerView.layoutManager = LinearLayoutManager(this)
-        dialogRecyclerView.adapter = dialogAdapter
-
-        val dialog = BottomSheetDialog(this)
-        dialog.setContentView(dialogView)
-        dialog.show()
     }
 
     private fun getresults() {
@@ -84,3 +62,4 @@ class CreditCard : AppCompatActivity() {
         })
     }
 }
+
