@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Title for the dialog -->
+    <TextView
+        android:id="@+id/dialogTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update Credit Card"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:textStyle="bold"/>
+
+    <!-- Edit text fields for updating credit card information -->
+    <EditText
+        android:id="@+id/newName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cardholder Name"
+        android:padding="16dp"/>
+
+    <EditText
+        android:id="@+id/newCardNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Card Number"
+        android:padding="16dp"/>
+
+    <EditText
+        android:id="@+id/newExpirationMonth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Expiration Month (MM)"
+        android:padding="16dp"/>
+
+    <EditText
+        android:id="@+id/newExpirationYear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Expiration Year (YY)"
+        android:padding="16dp"/>
+
+    <EditText
+        android:id="@+id/newCvv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="CVV"
+        android:padding="16dp"/>
+
+    <!-- Update button to save changes -->
+    <Button
+        android:id="@+id/updateButtonx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:padding="16dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Cancel button to dismiss the dialog -->
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:padding="16dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:layout_marginTop="8dp"/>
+</LinearLayout>

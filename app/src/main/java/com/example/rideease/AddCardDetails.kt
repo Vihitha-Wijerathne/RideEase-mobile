@@ -15,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase
 
 class AddCardDetails : AppCompatActivity() {
     private lateinit var dbRef: DatabaseReference
-    private lateinit var Name: EditText
+    private lateinit var name: EditText
     private lateinit var cardNumber: EditText
     private lateinit var expirationMonth: EditText
     private lateinit var expirationYear: EditText
@@ -30,7 +30,7 @@ class AddCardDetails : AppCompatActivity() {
         // Initialize Firebase Database reference
         dbRef = FirebaseDatabase.getInstance().getReference("CreditCards")
 
-        Name = findViewById(R.id.name)
+        name = findViewById(R.id.name)
         cardNumber = findViewById(R.id.card_number)
         expirationMonth = findViewById(R.id.month)
         expirationYear = findViewById(R.id.year)
@@ -73,8 +73,8 @@ class AddCardDetails : AppCompatActivity() {
     }
 
     private fun saveCreditCard() {
-        val nameText = Name.text.toString()
-        val cardNumberText = cardNumber.text.toString().replace(" ", "") // Remove spaces
+        val nameText = name.text.toString()
+        val cardNumberText = cardNumber.text.toString().replace(" ", "")
         val expirationMonthText = expirationMonth.text.toString()
         val expirationYearText = expirationYear.text.toString()
         val cvvText = cvv.text.toString()
@@ -104,11 +104,20 @@ class AddCardDetails : AppCompatActivity() {
         val uid = user.uid
 
         // Create a credit card object
-        val creditCard = AddCardModal(uid, nameText, cardNumberText, expirationYearText, expirationMonthText, cvvText)
+        val creditCard = AddCardModal(
+            cardId = null,
+            userId = uid,
+            name = nameText,
+            cardNumber = cardNumberText,
+            expirationMonth = expirationMonthText,
+            expirationYear = expirationYearText,
+            cvv = cvvText
+        )
 
         // Save credit card data to the Firebase Realtime Database
         val cardId = dbRef.push().key
         if (cardId != null) {
+            creditCard.cardId = cardId // Set the cardId
             dbRef.child(cardId).setValue(creditCard)
                 .addOnCompleteListener {
                     // Display a success toast
@@ -130,7 +139,7 @@ class AddCardDetails : AppCompatActivity() {
     }
 
     private fun clearFields() {
-        Name.text.clear()
+        name.text.clear()
         cardNumber.text.clear()
         expirationYear.text.clear()
         expirationMonth.text.clear()

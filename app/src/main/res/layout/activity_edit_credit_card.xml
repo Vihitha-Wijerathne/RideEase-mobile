@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Cardholder Name -->
+    <TextView
+        android:id="@+id/cardName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cardholder Name: "
+        android:textStyle="bold"
+        android:textSize="18sp" />
+
+    <!-- Card Number -->
+    <TextView
+        android:id="@+id/cardNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Card Number: " />
+
+    <!-- Expiration Month and Year -->
+    <TextView
+        android:id="@+id/expirationMonth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Expiration Month: " />
+
+    <TextView
+        android:id="@+id/expirationYear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Expiration Year: " />
+
+    <!-- CVV -->
+    <TextView
+        android:id="@+id/cvv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CVV: " />
+
+    <!-- Edit and Delete Buttons -->
+    <Button
+        android:id="@+id/editButtonx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:layout_marginTop="8dp" />
+</LinearLayout>

@@ -5,4 +5,6 @@ data class LoanModal(
     var userId: String? = null,
     var lamount : String? = null,
     var ldate : String? = null
-)
+) {
+
+}
