@@ -13,6 +13,9 @@ import com.example.rideease.Modals.RechargeModal
 import com.example.rideease.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class Recharge : AppCompatActivity() {
     private lateinit var usernametxt: TextView
@@ -126,7 +129,8 @@ class Recharge : AppCompatActivity() {
     }
 
     private fun getCurrentDate(): String {
-        // Implement the logic to get the current date in your desired format
-        return "YourFormattedDate"
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd \n\n HH:mm:ss", Locale.getDefault())
+        val date = Date()
+        return dateFormat.format(date)
     }
 }
