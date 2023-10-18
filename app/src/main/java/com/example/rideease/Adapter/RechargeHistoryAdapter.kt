@@ -21,7 +21,7 @@ class RechargeHistoryAdapter(private val historyList: List<RechargeModal>) : Rec
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = historyList[position]
-        holder.amountTextView.text = currentItem.amount.toString()
+        holder.amountTextView.text = "Rs.${currentItem.amount.toString()}"
         holder.dateTextView.text = currentItem.date
     }
 

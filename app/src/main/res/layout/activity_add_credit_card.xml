@@ -85,6 +85,8 @@
         android:id="@+id/submit_button"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:background="#FF5722"
+        android:textColor="#FFFFFF"
         android:text="Submit"/>
 
 </LinearLayout>
