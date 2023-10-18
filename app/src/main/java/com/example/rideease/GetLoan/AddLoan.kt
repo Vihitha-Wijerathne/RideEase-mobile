@@ -65,6 +65,7 @@ class AddLoan : AppCompatActivity() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if(snapshot.exists()){
                         val userr = snapshot.getValue(UserModal::class.java)
+
                         nic = userr?.nic!!
                         name = userr?.name!!
                         email = userr?.email!!
