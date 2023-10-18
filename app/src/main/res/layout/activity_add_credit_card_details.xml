@@ -1,0 +1,33 @@
+<!-- res/layout/activity_add_credit_card_details.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- RecyclerView for Credit Card List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/creditCards"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Loading Indicator -->
+    <TextView
+        android:id="@+id/creditCardLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Loading..."
+        android:textSize="16sp"
+        android:visibility="gone" />
+
+    <!-- Credit Card Count -->
+    <TextView
+        android:id="@+id/creditCardCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="0 Credit Cards"
+        android:textSize="16sp" />
+</LinearLayout>

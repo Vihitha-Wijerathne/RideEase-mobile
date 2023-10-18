@@ -9,42 +9,42 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.rideease.Modals.AddCardModal
 import com.example.rideease.R
 
+class CreditCardAdapter(
+    private val creditCards: List<AddCardModal>,
+    private val onDeleteClick: (AddCardModal) -> Unit
+) : RecyclerView.Adapter<CreditCardAdapter.ViewHolder>() {
 
-class CreditCardAdapter(private val testResults: List<AddCardModal>) :
-    RecyclerView.Adapter<CreditCardAdapter.TestResultViewHolder>() {
-
-    // Create a ViewHolder class to hold the views for a single row
-    class TestResultViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val NameTextView: TextView = itemView.findViewById(R.id.nameTextView)
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val cardNumberTextView: TextView = itemView.findViewById(R.id.cardNumberTextView)
+        val nameTextView: TextView = itemView.findViewById(R.id.nameTextView)
         val expirationMonthTextView: TextView = itemView.findViewById(R.id.expirationMonthTextView)
         val expirationYearTextView: TextView = itemView.findViewById(R.id.expirationYearTextView)
-        // Add more views as needed
+        val deleteButton: Button = itemView.findViewById(R.id.deleteButton)
+
+        fun bind(creditCard: AddCardModal, onDeleteClick: (AddCardModal) -> Unit) {
+            cardNumberTextView.text = creditCard.cardNumber
+            nameTextView.text = creditCard.name
+            expirationMonthTextView.text = "Expiry Date: ${creditCard.expirationMonth}"
+            expirationYearTextView.text = "/${creditCard.expirationYear}"
+
+            // Handle delete button click
+            deleteButton.setOnClickListener {
+                onDeleteClick(creditCard)
+            }
+        }
     }
 
-    // Create the ViewHolder and inflate the layout for each row
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TestResultViewHolder {
-        val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_credit_card, parent, false) // Create an XML layout for a single row
-        return TestResultViewHolder(itemView)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_credit_card, parent, false)
+        return ViewHolder(view)
     }
 
-    // Bind data to the views in each row
-    override fun onBindViewHolder(holder: TestResultViewHolder, position: Int) {
-        val testResult = testResults[position]
-
-        // Bind the data to the views
-        holder.NameTextView.text = testResult.name
-        holder.cardNumberTextView.text = testResult.cardNumber
-        holder.expirationMonthTextView.text = testResult.expirationMonth
-        holder.expirationYearTextView.text = testResult.expirationYear
-        // Add more binding as needed
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val creditCard = creditCards[position]
+        holder.bind(creditCard, onDeleteClick)
     }
 
-    // Return the number of items in the data set
     override fun getItemCount(): Int {
-        return testResults.size
+        return creditCards.size
     }
 }
-
-

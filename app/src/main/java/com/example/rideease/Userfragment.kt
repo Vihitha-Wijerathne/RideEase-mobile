@@ -22,9 +22,8 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 
-
-
-    class Userfragment : Fragment() {
+    class
+    Userfragment : Fragment() {
 
     private lateinit var database: DatabaseReference
     private lateinit var firebaseAuth: FirebaseAuth
@@ -35,6 +34,9 @@ import com.google.firebase.database.ValueEventListener
     private lateinit var nic: TextView
     private lateinit var logintxtbtn: Button
     private lateinit var rechargebtn: Button
+    private lateinit var loanhistory: Button
+    private lateinit var qrcode: Button
+
         private val TAG = "MyActivity"
 
     @SuppressLint("MissingInflatedId")
@@ -50,10 +52,12 @@ import com.google.firebase.database.ValueEventListener
         usernametxt = view.findViewById(R.id.username_profile)
         email = view.findViewById(R.id.email_profile)
         contactNumb = view.findViewById(R.id.number_profile)
-        cbalance = view.findViewById(R.id.cbalance_profile)
+        cbalance = view.findViewById(R.id.due_loan)
         nic = view.findViewById(R.id.nic_profile)
         logintxtbtn = view.findViewById(R.id.logintxt)
         rechargebtn = view.findViewById(R.id.rechargebtn)
+        loanhistory = view.findViewById(R.id.loanhistory)
+        qrcode = view.findViewById(R.id.qrcode)
 
         firebaseAuth = FirebaseAuth.getInstance()
         val user = firebaseAuth.currentUser
@@ -64,6 +68,16 @@ import com.google.firebase.database.ValueEventListener
         }
         logintxtbtn.setOnClickListener{
             val intent = Intent(activity, AddLoan::class.java)
+            startActivity(intent)
+        }
+
+        loanhistory.setOnClickListener{
+            val intent = Intent(activity, LoanHistory::class.java)
+            startActivity(intent)
+        }
+
+        qrcode.setOnClickListener{
+            val intent = Intent(activity, QRCodeActivity::class.java)
             startActivity(intent)
         }
 

@@ -1,0 +1,41 @@
+<!-- item_loan_card.xml -->
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/loanAmountTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Loan Amount: $1000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/dateTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date: 2023/10/18"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/deleteButton"
+            android:textColor="#FFFFFF"
+            android:background="#FF5722"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="Delete" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

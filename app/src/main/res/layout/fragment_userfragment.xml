@@ -5,18 +5,17 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroundt"
     android:scaleType="centerCrop"
-    tools:context=".Userfragment"
-    android:background="@drawable/backgroundt">
-
+    tools:context=".Userfragment">
 
 
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="414dp"
         android:layout_height="108dp"
-        android:scaleType="centerCrop"
         android:layout_gravity="center"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,39 +37,54 @@
     <Button
         android:id="@+id/logintxt"
         android:layout_width="114dp"
-        android:layout_height="78dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="24dp"
+        android:layout_height="40dp"
         android:background="@drawable/round_button_background"
         android:gravity="center"
-        android:text="due balance"
+        android:text="Get Loan"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/rechargebtn"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userpagedivider2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <Button
+        android:id="@+id/loanhistory"
+        android:layout_width="114dp"
+        android:layout_height="40dp"
+        android:background="@drawable/round_button_background"
+        android:gravity="center"
+        android:text="Loan History"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.946"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
     <Button
         android:id="@+id/rechargebtn"
         android:layout_width="114dp"
-        android:layout_height="78dp"
+        android:layout_height="40dp"
         android:background="@drawable/round_button_background"
-    android:textColor="@color/black"
-    android:gravity="center"
-    android:text="Recharge"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toEndOf="@+id/logintxt"
-    app:layout_constraintTop_toTopOf="@+id/logintxt" />
+        android:gravity="center"
+        android:text="Recharge"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
     <View
         android:id="@+id/userpagedivider2"
         android:layout_width="409dp"
         android:layout_height="1dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="1dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
@@ -133,12 +147,22 @@
         app:layout_constraintTop_toTopOf="@+id/userteletxt" />
 
     <TextView
-        android:id="@+id/cbalance_profile"
+        android:id="@+id/due_loan"
         android:layout_width="155dp"
         android:layout_height="44dp"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/userstatustxt"
+        app:layout_constraintTop_toTopOf="@+id/userstatustxt" />
+
+    <TextView
+        android:id="@+id/cbalance_profile2"
+        android:layout_width="155dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="64dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/userstatustxt"
         app:layout_constraintTop_toTopOf="@+id/userstatustxt" />
 
@@ -149,9 +173,21 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="32dp"
         android:gravity="center"
-        android:text="Balance"
+        android:text="Due Loan"
         android:textColor="#090909"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usercitytxt" />
+
+    <TextView
+        android:id="@+id/userstatustxt2"
+        android:layout_width="126dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="96dp"
+        android:gravity="center"
+        android:text="Balance"
+        android:textColor="#090909"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usercitytxt" />
 
@@ -188,10 +224,24 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:backgroundTint="@color/grey1"
-        android:textColor="@color/black"
         android:gravity="center"
         android:text="@string/logout_btn"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/qrcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/grey1"
+        android:gravity="center"
+        android:text="QR Code"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 

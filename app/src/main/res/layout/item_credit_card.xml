@@ -1,72 +1,68 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<!-- item_credit_card_history.xml -->
+
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="#2196F3"
-    android:layout_margin="16dp"
-    android:elevation="8dp"
-    android:padding="16dp">
+    android:layout_margin="8dp"
+    app:cardCornerRadius="4dp"
+    android:background="@drawable/rounded_edittext_background"
+    app:cardElevation="4dp">
 
-    <!-- Magnetic Stripe -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="8dp"
-        android:background="#000"
-        android:layout_marginTop="8dp" />
-
-    <!-- Card Number -->
-    <TextView
-        android:id="@+id/cardNumberTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="1234 5678 9012 3456"
-        android:textSize="16sp"
-        android:textColor="#FFF"
-        android:layout_marginTop="16dp" />
-
-    <!-- Card Holder Name -->
-    <TextView
-        android:id="@+id/nameTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="John Doe"
-        android:textSize="16sp"
-        android:textColor="#FFF"
-        android:layout_marginTop="8dp" />
-
-    <!-- Expiry Date and CVV -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="16dp">
+        android:orientation="vertical"
+        android:padding="16dp">
 
+        <!-- Card Number -->
         <TextView
-            android:id="@+id/expirationMonthTextView"
-            android:layout_width="0dp"
+            android:id="@+id/cardNumberTextView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Expiry Date: 12"
-            android:textColor="#FFF"
-            android:textSize="14sp" />
+            android:text="1234 5678 9012 3456"
+            android:textSize="18sp" />
 
+        <!-- Card Holder Name -->
         <TextView
-            android:id="@+id/expirationYearTextView"
-            android:layout_width="0dp"
+            android:id="@+id/nameTextView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="/24"
-            android:textColor="#FFF"
-            android:textSize="14sp" />
+            android:text="John Doe"
+            android:textSize="16sp" />
 
-        <TextView
-            android:layout_width="0dp"
+        <!-- Expiry Date and Year (Horizontal Layout) -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="CVV: 123"
-            android:textSize="14sp"
-            android:textColor="#FFF" />
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:id="@+id/expirationMonthTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Expiry Date: 12"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/expirationYearTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/24"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <!-- Delete Button -->
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:textColor="#FFFFFF"
+            android:background="#FF5722"
+            android:text="Delete" />
     </LinearLayout>
-</LinearLayout>
+</androidx.cardview.widget.CardView>
