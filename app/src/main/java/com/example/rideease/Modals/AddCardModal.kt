@@ -1,5 +1,6 @@
 package com.example.rideease.Modals
 
+
 data class AddCardModal(
     val userId: String? = null,
     val name:String? = null,

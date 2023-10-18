@@ -1,0 +1,22 @@
+<!-- activity_daypass_select.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+  <LinearLayout
+      android:id="@+id/routesContainer"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+    <!-- Route items will be added here dynamically -->
+  </LinearLayout>
+
+  <!-- Other UI elements in your activity layout if any -->
+  <Button
+      android:id="@+id/buttonBuyDaypass"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Buy Daypass" />
+
+</LinearLayout>

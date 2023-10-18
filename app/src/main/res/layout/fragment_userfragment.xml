@@ -5,67 +5,194 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Userfragment">
+    android:scaleType="centerCrop"
+    tools:context=".Userfragment"
+    android:background="@drawable/backgroundt">
 
-    <TextView
-        android:id="@+id/username_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="102dp"
-        android:layout_marginTop="62dp"
-        android:layout_marginEnd="251dp"
-        android:text="TextView"
+
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="414dp"
+        android:layout_height="108dp"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/number_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="87dp"
-        android:layout_marginEnd="242dp"
-        android:text="TextView"
+        android:id="@+id/username_profile"
+        android:layout_width="156dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:textColor="#090909"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/logintxt"
+        android:layout_width="114dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/round_button_background"
+        android:gravity="center"
+        android:text="due balance"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/rechargebtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userpagedivider2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/rechargebtn"
+        android:layout_width="114dp"
+        android:layout_height="78dp"
+        android:background="@drawable/round_button_background"
+    android:textColor="@color/black"
+    android:gravity="center"
+    android:text="Recharge"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toEndOf="@+id/logintxt"
+    app:layout_constraintTop_toTopOf="@+id/logintxt" />
+
+    <View
+        android:id="@+id/userpagedivider2"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userstatustxt" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="138dp"
+        android:layout_height="111dp"
+        android:layout_marginTop="22dp"
+        android:src="@drawable/navbar_user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView8" />
+
+    <TextView
+        android:id="@+id/useremailtxt"
+        android:layout_width="126dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="Email"
+        android:textColor="#090909"
+        app:layout_constraintEnd_toStartOf="@+id/email_profile"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_profile" />
 
     <TextView
         android:id="@+id/email_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="67dp"
-        android:layout_marginEnd="225dp"
-        android:text="TextView"
+        android:layout_width="153dp"
+        android:layout_height="56dp"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/number_profile" />
-
-    <TextView
-        android:id="@+id/cbalance_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="184dp"
-        android:layout_marginTop="91dp"
-        android:layout_marginEnd="170dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_profile" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/useremailtxt"
+        app:layout_constraintTop_toTopOf="@+id/useremailtxt" />
 
     <TextView
         android:id="@+id/nic_profile"
+        android:layout_width="155dp"
+        android:layout_height="44dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/usercitytxt"
+        app:layout_constraintTop_toTopOf="@+id/usercitytxt" />
+
+    <TextView
+        android:id="@+id/number_profile"
+        android:layout_width="155dp"
+        android:layout_height="44dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/userteletxt"
+        app:layout_constraintTop_toTopOf="@+id/userteletxt" />
+
+    <TextView
+        android:id="@+id/cbalance_profile"
+        android:layout_width="155dp"
+        android:layout_height="44dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/userstatustxt"
+        app:layout_constraintTop_toTopOf="@+id/userstatustxt" />
+
+    <TextView
+        android:id="@+id/userstatustxt"
+        android:layout_width="126dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="Balance"
+        android:textColor="#090909"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usercitytxt" />
+
+    <TextView
+        android:id="@+id/userteletxt"
+        android:layout_width="126dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:text="Contact no"
+        android:textColor="#090909"
+        app:layout_constraintEnd_toStartOf="@+id/number_profile"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/useremailtxt" />
+
+    <TextView
+        android:id="@+id/usercitytxt"
+        android:layout_width="126dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:text="NIC"
+        android:textColor="#090909"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userteletxt" />
+
+    <Button
+        android:id="@+id/logout_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="67dp"
-        android:layout_marginEnd="287dp"
-        android:layout_marginBottom="248dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="@color/grey1"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:text="@string/logout_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cbalance_profile" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

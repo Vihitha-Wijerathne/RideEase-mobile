@@ -4,6 +4,83 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddLoan.AddLoan">
+    android:background="@drawable/backgroundt"
+    tools:context=".GetLoan.AddLoan"
+    >
+
+
+    <TextView
+        android:id="@+id/title_loan"
+        android:layout_width="329dp"
+        android:layout_height="72dp"
+        android:gravity="center"
+        android:text="Add New Loan"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/current_balance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.648" />
+
+    <TextView
+        android:id="@+id/current_balance"
+        android:layout_width="355dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="180dp"
+        android:gravity="center"
+        android:text="Remaining Loan Amount"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/loanamount_loan"
+        android:layout_width="342dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/rounded_edittext_background"
+        android:hint="Loan Amount"
+        android:paddingStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/remainingloan_loan"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/addloan_loan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Add Loan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loanamount_loan"
+
+        />
+
+    <!-- Center the layout vertically -->
+
+    <TextView
+        android:id="@+id/remainingloan_loan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Remaining Loan: $1000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/current_balance"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
