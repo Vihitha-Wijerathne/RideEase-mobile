@@ -3,6 +3,8 @@ package com.example.rideease.Recharge
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.rideease.Modals.UserModal
@@ -20,6 +22,17 @@ class Recharge : AppCompatActivity() {
     private lateinit var username: String
     private var cbalance: Double = 0.0
     private var uloandue: Double = 0.0
+    private lateinit var rechargebtn:Button
+    private var rechargeamount: Double = 0.0
+    private lateinit var inputamouhnt: EditText
+    private lateinit var inputstring:String
+    private lateinit var nic: String
+    private lateinit var name: String
+    private lateinit var email: String
+    private lateinit var number: String
+    private lateinit var disbalance:TextView
+    private lateinit var disloan:TextView
+    private  var loana:Double = 0.0
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +42,10 @@ class Recharge : AppCompatActivity() {
         usernametxt = findViewById(R.id.textViewUserName)
         avlbalancetxt = findViewById(R.id.textViewAvailableBalanceValue)
         loanbalancetxt = findViewById(R.id.textViewLoanBalanceValue)
+        rechargebtn = findViewById(R.id.buttonRecharge)
+        inputamouhnt = findViewById(R.id.editTextRechargeAmount)
+        disbalance = findViewById(R.id.textViewAvailableBalanceValue)
+        disloan = findViewById(R.id.textViewLoanBalanceValue)
 
         firebaseAuth = FirebaseAuth.getInstance()
         val user = firebaseAuth.currentUser
@@ -42,9 +59,16 @@ class Recharge : AppCompatActivity() {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     if (dataSnapshot.exists()) {
                         val userAccount = dataSnapshot.getValue(UserModal::class.java)
-                        username = userAccount?.name!!
+                        nic = userAccount?.nic!!
+                        name = userAccount?.name!!
+                        email = userAccount?.email!!
+                        number = userAccount?.number!!
                         cbalance = userAccount?.balance!!
                         uloandue = userAccount?.loandue!!
+                        disbalance.text = cbalance.toString()
+                        loana = 1500.00-uloandue
+                        disloan.text = loana.toString()
+
                     }
                 }
 
@@ -54,33 +78,34 @@ class Recharge : AppCompatActivity() {
 
             })
         }
-//        buttonRecharge.setOnClickListener {
-//            val rechargeAmount = editTextRechargeAmount.text.toString().toDouble()
-//
-//            userAccountRef.addListenerForSingleValueEvent(object : ValueEventListener {
-//                override fun onDataChange(dataSnapshot: DataSnapshot) {
-//                    if (dataSnapshot.exists()) {
-//                        val userAccount = dataSnapshot.getValue(UserAccount::class.java)
-//                        if (userAccount != null) {
-//                            // Deduct the recharge amount from the loan balance
-//                            userAccount.loanBalance -= rechargeAmount
-//
-//                            // If there's an excess amount, add it to the available balance
-//                            if (rechargeAmount > userAccount.loanBalance) {
-//                                userAccount.availableBalance += (rechargeAmount - userAccount.loanBalance)
-//                                userAccount.loanBalance = 0.0
-//                            }
-//
-//                            // Update the user account details in the database
-//                            userAccountRef.setValue(userAccount)
-//                        }
-//                    }
-//                }
-//
-//                override fun onCancelled(databaseError: DatabaseError) {
-//                    // Handle errors if needed
-//                }
-//            })
-//        }
-}
+
+        rechargebtn.setOnClickListener{
+            inputstring = inputamouhnt.text.toString()
+            try {
+                rechargeamount = inputstring.toDouble()
+            }catch (e : NumberFormatException){
+
+            }
+            recharge()
+
+        }
+    }
+
+    private fun recharge(){
+        if(loana<=rechargeamount){
+            rechargeamount=rechargeamount-loana
+            cbalance = cbalance + rechargeamount
+            uloandue = 1500.0
+        }
+        else{
+            loana = loana-rechargeamount
+        }
+
+        database = FirebaseDatabase.getInstance().getReference("users").child(userId)
+
+        val updateuser = UserModal(nic,name,email,number,cbalance,uloandue)
+        database.setValue(updateuser)
+    }
+
+
 }
