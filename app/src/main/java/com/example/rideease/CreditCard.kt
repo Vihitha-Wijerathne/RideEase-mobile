@@ -1,7 +1,5 @@
 package com.example.rideease
 
-import android.widget.Button
-
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,36 +23,17 @@ class CreditCard : AppCompatActivity() {
 
         cbresult = ArrayList()
 
-        recordAdapter = CreditCardAdapter(cbresult) { testResultToDelete ->
-            // Handle the deletion of the item (e.g., remove it from the list)
-            cbresult.remove(testResultToDelete)
-            recordAdapter.notifyDataSetChanged()
-        }
+        // Initialize the RecyclerView
+        recordRecyclerView = findViewById(R.id.creditCardRecyclerView)
+        recordRecyclerView.layoutManager = LinearLayoutManager(this)
 
-
-        val openDialogButton = findViewById<Button>(R.id.openDialogButton)
-        openDialogButton.setOnClickListener {
-            // When the button is clicked, open the dialog
-            openCardDetailsDialog()
+        // Initialize the adapter and pass the onDeleteClick lambda
+        recordAdapter = CreditCardAdapter(cbresult) { cbResult ->
+            deleteItem(cbResult) // Call the deleteItem function with the clicked item
         }
+        recordRecyclerView.adapter = recordAdapter // Set the adapter here
 
         getresults()
-    }
-
-    private fun openCardDetailsDialog() {
-        val dialogView = layoutInflater.inflate(R.layout.dialog_credit_card_details, null)
-        val dialogRecyclerView = dialogView.findViewById<RecyclerView>(R.id.dialogRecyclerView)
-
-        // Set up the RecyclerView in the dialog with card details
-        val dialogAdapter = CreditCardAdapter(cbresult) { testResultToDelete ->
-            // Handle interactions within the dialog
-        }
-        dialogRecyclerView.layoutManager = LinearLayoutManager(this)
-        dialogRecyclerView.adapter = dialogAdapter
-
-        val dialog = BottomSheetDialog(this)
-        dialog.setContentView(dialogView)
-        dialog.show()
     }
 
     private fun getresults() {
@@ -82,5 +61,26 @@ class CreditCard : AppCompatActivity() {
                 // Handle the error here
             }
         })
+    }
+
+    private fun deleteItem(cbResult: AddCardModal) {
+        val cardNumber = cbResult.cardNumber
+        val dbRef = cardNumber?.let {
+            FirebaseDatabase.getInstance().getReference("CreditCards").child(
+                it
+            )
+        }
+
+        if (dbRef != null) {
+            dbRef.removeValue().addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    // Deletion was successful
+                    cbresult.remove(cbResult)
+                    recordAdapter.notifyDataSetChanged()
+                } else {
+                    // Handle the deletion error
+                }
+            }
+        }
     }
 }

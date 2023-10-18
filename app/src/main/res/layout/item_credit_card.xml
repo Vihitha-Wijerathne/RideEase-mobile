@@ -69,4 +69,14 @@
             android:textSize="14sp"
             android:textColor="#FFF" />
     </LinearLayout>
+
+    <!-- Delete Button -->
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:background="#FF0000"
+        android:text="Delete"
+        android:textColor="#FFF" />
 </LinearLayout>
