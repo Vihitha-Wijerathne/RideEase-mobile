@@ -93,7 +93,9 @@ class Recharge : AppCompatActivity() {
             } catch (e: NumberFormatException) {
 
             }
-            recharge()
+            if (recharge()) {
+                Toast.makeText(this, "Recharge Successful", Toast.LENGTH_SHORT).show()
+            }
         }
 
         buttonRechargeHistory.setOnClickListener {
@@ -103,7 +105,7 @@ class Recharge : AppCompatActivity() {
         }
     }
 
-    private fun recharge() {
+    private fun recharge(): Boolean {
         if (loana <= rechargeamount) {
             rechargeamount = rechargeamount - loana
             cbalance = cbalance + rechargeamount
@@ -118,14 +120,16 @@ class Recharge : AppCompatActivity() {
             if (historyId != null) {
                 historyDatabase.child(historyId).setValue(historyItem)
             }
+
+            // Update the user's data in the database
+            val updateuser = UserModal(nic, name, email, number, cbalance, uloandue)
+            database.setValue(updateuser)
+
+            return true
         } else {
             loana = loana - rechargeamount
+            return false
         }
-
-        // Update the user's data in the database
-        database = FirebaseDatabase.getInstance().getReference("users").child(userId)
-        val updateuser = UserModal(nic, name, email, number, cbalance, uloandue)
-        database.setValue(updateuser)
     }
 
     private fun getCurrentDate(): String {

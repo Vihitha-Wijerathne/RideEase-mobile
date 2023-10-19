@@ -4,7 +4,6 @@ class RouteModel {
     var destination: String? = null
     var fare: Double? = null
 
-    // Default, no-argument constructor required by Firebase
     constructor()
 
     constructor(routeId: String, source: String, destination: String, fare: Double) {
